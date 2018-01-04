@@ -1,0 +1,11 @@
+<launch>
+
+<rosparam param="pillar_angle"> [36,40,166,180,308,320]</rosparam>
+<node name="base_move_node" pkg="base_move" type="base_move_node" output="screen">
+     <param name="mcu_comm" value="/dev/ttyS0"/>
+     <param name="lds_comm" value="/dev/ttyS2"/>
+</node>
+<node name="tf_publisher" pkg="tf" type="static_transform_publisher" args="0 0 0.08 1.0 0 0 0 base_link base_laser 20"/>
+<!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find base_move)/rviz/sensor.rviz"/-->
+
+</launch>
